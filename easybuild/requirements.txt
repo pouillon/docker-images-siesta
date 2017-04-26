@@ -1,0 +1,7 @@
+easybuild
+lxml
+nose2
+pygit2
+pyyaml
+unittest2
+xmlrunner

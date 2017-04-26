@@ -1,0 +1,10 @@
+apt-utils
+git
+libgit2-dev
+libxml2-dev
+libxml2-utils
+libxslt1-dev
+lmod
+python-dev
+python-pip
+xsltproc
