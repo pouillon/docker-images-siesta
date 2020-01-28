@@ -272,7 +272,7 @@ ifdef WITH_NETCDF
     endif
   endif
   NETCDF_INCFLAGS = -I$(NETCDF_ROOT)/include -I$(NETCDF_FORTRAN_ROOT)/include
-  NETCDF_LIBS = $(NETCDF_FORTRAN_ROOT)/lib/libnetcdff.a $(NETCDF_ROOT)/lib/libnetcdf.a
+  NETCDF_LIBS = -L$(NETCDF_FORTRAN_ROOT)/lib -lnetcdff -L$(NETCDF_ROOT)/lib -lnetcdf
   DEFS_NETCDF = $(DEFS_PREFIX)-DCDF
 endif
 
