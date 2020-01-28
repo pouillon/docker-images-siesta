@@ -18,7 +18,8 @@ git clean -fdX
 git pull --prune
 git checkout "v${siesta_version}"
 
-# Configure the build
+# Install selected flavors of SIESTA
+mkdir -p "${siesta_bindir}"
 for flavor in serial mpi; do
   siesta_builddir="${siesta_srcdir}/Obj/${flavor}"
   mkdir -p "${siesta_builddir}"
