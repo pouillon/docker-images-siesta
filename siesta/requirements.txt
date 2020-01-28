@@ -1,0 +1,11 @@
+biggles
+lxml
+matplotlib
+numpy
+pygit2
+pytest
+pyyaml
+scipy
+sisl
+termcolor
+urllib5
