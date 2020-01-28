@@ -10,12 +10,13 @@ ADD . /siesta
 
 # Prepare the environment
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt update -y && apt install apt-utils locales -y && apt upgrade -y
+RUN apt-get update -y && apt-get install apt-utils -y && apt-get upgrade -y
+RUN apt-get install locales -y
 RUN echo "LC_ALL=\"C.UTF-8\"" >>/etc/default/locale
 RUN locale-gen C.UTF-8 && update-locale LANG="C.UTF-8"
 
 # Install the required development packages
-RUN /bin/bash -c "xargs -a <(awk '/^\s*[^#]/' packages.txt) -r -- apt install -y"
+RUN /bin/bash -c "xargs -a <(awk '/^\s*[^#]/' packages.txt) -r -- apt-get install -y"
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --upgrade pip
