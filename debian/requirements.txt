@@ -1,4 +1,3 @@
-biggles
 lxml
 matplotlib
 numpy
