@@ -227,7 +227,7 @@ LAPACK_LIBS = -llapack
 # If BLACS is not included in the ScaLAPACK library you are
 # required to add it here as well:
 ifdef WITH_MPI
-  BLACS_LIBS = -lblacsF77init-openmpi -lblacsCinit-openmpi -lblacs-openmpi
+  BLACS_LIBS =
   SCALAPACK_LIBS = -lscalapack-openmpi
 endif
 
