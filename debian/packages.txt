@@ -4,7 +4,7 @@ diffutils
 doxygen-latex
 gfortran
 git
-libatlas-dev
+libatlas-base-dev
 libblas-dev
 libgit2-dev
 liblapack-dev

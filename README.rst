@@ -1,8 +1,8 @@
-ESL Docker Images
-=================
+SIESTA Docker Images
+====================
 
 This project gathers the specifications of Docker images that can be used in
-Gitlab runners to build ESL software.
+Gitlab runners to build software requiring SIESTA.
 
 Contributions and customizations are welcome. Before changing anything, please
 create an issue summarizing your intentions for each image you wish to tweak.
