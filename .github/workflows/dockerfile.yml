@@ -11,5 +11,4 @@ jobs:
         uses: brpaz/hadolint-action@master
         with:
           dockerfile: "debian/Dockerfile"
-          ignore: DL3005,DL3008,DL3013,DL3015
 
