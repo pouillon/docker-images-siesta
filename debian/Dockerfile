@@ -1,22 +1,24 @@
 # Use an official Debian runtime as a base image
 FROM debian:buster
-MAINTAINER Yann Pouillon "yann.pouillon@materialsevolution.es"
 
 # Set the working directory to /app
 WORKDIR /siesta
 
 # Copy the current directory contents into the container at /app
-ADD . /siesta
-
-# Prepare the environment
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update -y && apt-get install apt-utils -y && apt-get upgrade -y
-RUN apt-get install locales -y
-RUN echo "LC_ALL=\"C.UTF-8\"" >>/etc/default/locale
-RUN locale-gen C.UTF-8 && update-locale LANG="C.UTF-8"
+COPY . /siesta
 
 # Install the required development packages
-RUN /bin/bash -c "xargs -a <(awk '/^\s*[^#]/' packages.txt) -r -- apt-get install -y"
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -y && \
+  apt-get install apt-utils -y && \
+  apt-get upgrade -y && \
+  /bin/bash -c "xargs -a <(awk '/^\s*[^#]/' packages.txt) -r -- apt-get install -y" && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+# Prepare the environment
+RUN echo "LC_ALL=\"C.UTF-8\"" >>/etc/default/locale
+RUN locale-gen C.UTF-8 && update-locale LANG="C.UTF-8"
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --upgrade pip
